@@ -128,3 +128,37 @@ def game_hash
 end
 
 # Write code here
+
+def num_points_scored(player_name)
+  players = game_hash[:home][:players].merge(game_hash[:away][:players])
+  players[player_name][:points]
+end
+
+def shoe_size(player_name)
+  players = game_hash[:home][:players].merge(game_hash[:away][:players])
+  players[player_name][:points]
+end
+
+def team_colors(team_name)
+  case team_name
+  when game_hash[:home][:team_name]
+    game_hash[:home][:colors]
+  when game_hash[:home][:team_name]
+    game_hash[:away][:colors]
+  end
+end
+
+def team_names
+  [game_hash[:home][:team_name], game_hash[:away][:team_name]]
+end
+
+def player_numbers(team_name)
+  case team_name
+  when game_hash[:home][:team_name]
+    game_hash[:home][:players].map{|key, value| value[:number]}
+  when game_hash[:home][:team_name]
+    game_hash[:away][:players].map{|key, value| value[:number]}
+  end
+end
+  
+  
